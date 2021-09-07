@@ -4,6 +4,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const DEVELOPMENT = 'development'
 const PRODUCTION = 'production'
@@ -32,7 +33,7 @@ const config = {
 
   resolve: {
     modules: [path.resolve(__dirname, './src'), path.resolve(__dirname, './node_modules')],
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
+    extensions: ['.ts', '.tsx', '.js', '.json'],
     alias: {
       react: require.resolve('react')
     },
@@ -54,6 +55,21 @@ const config = {
         }
       },
       {
+        test: /\.(scss|css)$/,
+        use: [
+          process.env.NODE_ENV !== PRODUCTION
+            ? 'style-loader'
+            : MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+      },
+      {
         test: /\.svg$/,
         use: [
           '@svgr/webpack',
@@ -64,6 +80,10 @@ const config = {
             }
           }
         ]
+      },
+      {
+        test: /\.(woff(2)?|eot|ttf|otf|)$/,
+        type: 'asset/inline'
       },
       {
         test: /\.(png|jpg|gif)$/,
