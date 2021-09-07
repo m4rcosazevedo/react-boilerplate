@@ -1,8 +1,9 @@
 {
-  "name": "react-typescript-webpack",
+  "name": "@marcospca/setup-react",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "author": "Marcos Azevedo <m4rcos.azevedo@gmail.com>",
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
