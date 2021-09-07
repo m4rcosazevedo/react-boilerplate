@@ -57,7 +57,7 @@ const config = {
       {
         test: /\.(scss|css)$/,
         use: [
-          process.env.NODE_ENV !== PRODUCTION
+          process.env.NODE_ENV === PRODUCTION
             ? 'style-loader'
             : MiniCssExtractPlugin.loader,
           'css-loader',
@@ -111,7 +111,8 @@ const config = {
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-    })
+    }),
+    new MiniCssExtractPlugin()
   ]
 }
 

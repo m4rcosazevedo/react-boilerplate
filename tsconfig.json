@@ -1,10 +1,14 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
-      "src/*": [
-        "src/*"
-      ]
+      "@main/*": ["./src/main/*"],
+      "@presentation/*": ["./src/presentation/*"],
+      "@types/*": ["./src/types/*"],
+      "@infra/*": ["./src/types/*"],
+      "@validation/*": ["./src/validation/*"],
+      "@data/*": ["./src/data/*"],
+      "@domain/*": ["./src/domain/*"],
     },
     "outDir": "./dist",
     "target": "es5",

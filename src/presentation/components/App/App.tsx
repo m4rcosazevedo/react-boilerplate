@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../assets/scss/_global.scss'
+import '@presentation/assets/scss/_global.scss'
 
 export function App (): JSX.Element {
   return (
