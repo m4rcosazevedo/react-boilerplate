@@ -52,6 +52,7 @@
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --config ./webpack.config.js --hot --open",
     "build": "NODE_ENV=production webpack --progress",
+    "prod": "live-server",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
   }
 }
