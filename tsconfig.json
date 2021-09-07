@@ -9,6 +9,7 @@
       "@validation/*": ["./src/validation/*"],
       "@data/*": ["./src/data/*"],
       "@domain/*": ["./src/domain/*"],
+      "@/*": ["./*"],
     },
     "outDir": "./dist",
     "target": "es5",

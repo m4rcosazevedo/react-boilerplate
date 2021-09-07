@@ -1,10 +1,11 @@
 import React from 'react'
 import '@presentation/assets/scss/_global.scss'
+import { HomeShow } from '@presentation/pages/Home/Show'
 
 export function App (): JSX.Element {
   return (
     <>
-      <h1>React + TypeScript + Webpack + Without CRA</h1>
+      <HomeShow />
     </>
   )
 }

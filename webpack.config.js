@@ -32,7 +32,10 @@ const config = {
   },
 
   resolve: {
-    modules: [path.resolve(__dirname, './src'), path.resolve(__dirname, './node_modules')],
+    modules: [
+      path.resolve(__dirname, './src'),
+      path.resolve(__dirname, './node_modules')
+    ],
     extensions: ['.ts', '.tsx', '.js', '.json'],
     alias: {
       react: require.resolve('react')
@@ -48,10 +51,15 @@ const config = {
     rules: [
       {
         test: /\.(ts|js)x?$/,
-        include: path.resolve('src'),
+        // include: path.resolve('src'),
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
+          loader: 'babel-loader',
+          options: {
+            plugins: [
+              '@babel/plugin-transform-runtime'
+            ]
+          }
         }
       },
       {
