@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import useSWR from 'swr'
+import T from '@presentation/components/Translator/Translator'
 
 async function fetchPokemons (page = '') {
   const response = await axios.get(`https://pokeapi.co/api/v2/${page}`)
@@ -27,7 +28,7 @@ export function HomeShow () {
 
   return (
     <>
-      <h1>Olá, essa é a Home do site</h1>
+      <h1><T path="home.message" /></h1>
 
       <ul>
         {pokemons.results.map((item: any) => <li key={item.url}>{item.name}</li>)}
