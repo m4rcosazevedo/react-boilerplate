@@ -2,6 +2,7 @@ import axios from 'axios'
 import React from 'react'
 import useSWR from 'swr'
 import T from '@presentation/components/Translator/Translator'
+import { Loading } from '@/shared/ui/loaders'
 
 async function fetchPokemons (page = '') {
   const response = await axios.get(`https://pokeapi.co/api/v2/${page}`)
@@ -33,6 +34,8 @@ export function HomeShow () {
       <ul>
         {pokemons.results.map((item: any) => <li key={item.url}>{item.name}</li>)}
       </ul>
+
+      <Loading />
     </>
   )
 }

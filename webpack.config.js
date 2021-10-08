@@ -23,20 +23,22 @@ const config = {
     filename: '[name].js'
   },
 
-  devtool: 'source-map',
+  ...(mode === DEVELOPMENT && {
+    devtool: 'source-map',
 
-  devServer: {
-    static: path.resolve('./dist'),
-    hot: true,
-    port: 9000
-  },
+    devServer: {
+      static: path.resolve('./dist'),
+      hot: true,
+      port: 9000
+    }
+  }),
 
   resolve: {
     modules: [
       path.resolve(__dirname, './src'),
       path.resolve(__dirname, './node_modules')
     ],
-    extensions: ['.ts', '.tsx', '.js', '.json'],
+    extensions: ['.ts', '.tsx', '.js'],
     alias: {
       react: require.resolve('react')
     },
@@ -51,7 +53,6 @@ const config = {
     rules: [
       {
         test: /\.(ts|js)x?$/,
-        // include: path.resolve('src'),
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -94,12 +95,8 @@ const config = {
         type: 'asset/inline'
       },
       {
-        test: /\.(png|jpg|gif)$/,
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]',
-          outputPath: './images/'
-        }
+        test: /\.(png|jpg|jpeg|gif)$/i,
+        type: 'asset/resource'
       }
     ]
   },
